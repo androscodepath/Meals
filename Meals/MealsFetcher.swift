@@ -39,17 +39,4 @@ class MealsFetcher {
         
     }
     
-    
-    var data: Data?
-    private var queue: DispatchQueue = DispatchQueue(label: "custom", attributes: .concurrent)
-    func getData(competion: @escaping (Data?) -> Void){
-        queue.async {
-            competion(self.data)
-        }
-    }
-    public func updateData(_ newData: Data?) {
-        queue.sync {
-            self.data = newData
-        }
-    }
 }

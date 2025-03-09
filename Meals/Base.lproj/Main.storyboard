@@ -31,25 +31,34 @@
                                     <action selector="startSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mnp-Ab-A57"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tbO-XY-Zlr">
+                                <rect key="frame" x="0.0" y="150" width="393" height="668"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lFq-rK-PUd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0BN-8e-sdc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbO-XY-Zlr" secondAttribute="bottom" id="C5O-3d-LOe"/>
+                            <constraint firstItem="tbO-XY-Zlr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CS1-r0-CiX"/>
                             <constraint firstItem="4Of-9q-Ldi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NZU-yS-aYi"/>
                             <constraint firstItem="4Of-9q-Ldi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q89-7z-NGU"/>
                             <constraint firstItem="lFq-rK-PUd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a6c-U8-tac"/>
                             <constraint firstItem="4Of-9q-Ldi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bfw-hU-Oqr"/>
+                            <constraint firstItem="tbO-XY-Zlr" firstAttribute="top" secondItem="lFq-rK-PUd" secondAttribute="bottom" id="pVd-l6-ELm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbO-XY-Zlr" secondAttribute="trailing" id="rPa-0W-Sif"/>
                             <constraint firstItem="lFq-rK-PUd" firstAttribute="top" secondItem="4Of-9q-Ldi" secondAttribute="bottom" id="rsp-5R-ZUs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mealSearchBar" destination="4Of-9q-Ldi" id="XCD-Zf-k1X"/>
+                        <outlet property="mealsTableView" destination="tbO-XY-Zlr" id="2hV-F2-AXD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="4"/>
+            <point key="canvasLocation" x="78.625954198473281" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
