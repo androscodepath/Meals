@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tbO-XY-Zlr">
-                                <rect key="frame" x="0.0" y="194" width="393" height="624"/>
+                                <rect key="frame" x="0.0" y="194" width="393" height="575"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -51,6 +51,7 @@
                             <constraint firstItem="lFq-rK-PUd" firstAttribute="top" secondItem="4Of-9q-Ldi" secondAttribute="bottom" id="rsp-5R-ZUs"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Meals" image="fork.knife" catalog="system" selectedImage="fork.knife" id="RyT-8x-Yij"/>
                     <navigationItem key="navigationItem" title="Meals" id="EeN-gq-IJN"/>
                     <connections>
                         <outlet property="mealSearchBar" destination="4Of-9q-Ldi" id="XCD-Zf-k1X"/>
@@ -60,7 +61,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2858.7786259541986" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="3785.4961832061067" y="3.5211267605633805"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="y28-uI-K4L">
+            <objects>
+                <tableViewController id="O2y-HP-1xJ" customClass="FavoriteTableViewController" customModule="Meals" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QdF-2S-A9r">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3x4-gJ-Ftv">
+                            <rect key="frame" x="0.0" y="121.66666793823242" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                        </button>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TTp-zK-vry">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTp-zK-vry" id="afy-id-7la">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="O2y-HP-1xJ" id="wUZ-Ih-CyQ"/>
+                            <outlet property="delegate" destination="O2y-HP-1xJ" id="JN2-VA-n0N"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" selectedImage="star.fill" id="p5F-aM-cIE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pzU-X5-ytc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3624" y="812"/>
         </scene>
         <!--Meal Detail View Controller-->
         <scene sceneID="w8g-IC-GlA">
@@ -76,12 +112,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEc-bs-e3r">
+                                <rect key="frame" x="264" y="103" width="113" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system" title="Favorite"/>
+                                <connections>
+                                    <action selector="saveToFavorite:" destination="hQA-lP-Mo1" eventType="touchUpInside" id="Fsr-Jz-9bO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PNk-SQ-FyM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="g8I-wW-qwB" firstAttribute="centerY" secondItem="GUV-K6-zHB" secondAttribute="centerY" id="ATk-js-qRQ"/>
                             <constraint firstItem="g8I-wW-qwB" firstAttribute="centerX" secondItem="GUV-K6-zHB" secondAttribute="centerX" id="CdV-4z-dpB"/>
+                            <constraint firstItem="TEc-bs-e3r" firstAttribute="top" secondItem="PNk-SQ-FyM" secondAttribute="top" id="cFM-l3-IEg"/>
+                            <constraint firstItem="TEc-bs-e3r" firstAttribute="trailing" secondItem="GUV-K6-zHB" secondAttribute="trailingMargin" id="nYH-WX-oKo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Itv-D0-6Hr"/>
@@ -91,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH9-mm-QLv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="-6"/>
+            <point key="canvasLocation" x="4854.1984732824421" y="-6.3380281690140849"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TZs-t2-Q2t">
@@ -104,15 +150,36 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3bC-Wa-WXA"/>
+                        <segue destination="NnS-zB-GF8" kind="relationship" relationship="rootViewController" id="3bC-Wa-WXA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOx-UY-Vfu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1932.06106870229" y="3.5211267605633805"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="EAI-gg-i9P">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="NnS-zB-GF8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hSU-Yg-Eg9"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ylr-52-ro0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="1Xw-KZ-157"/>
+                        <segue destination="O2y-HP-1xJ" kind="relationship" relationship="viewControllers" id="0bx-iA-4gC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ota-sx-oBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2858.7786259541986" y="3.5211267605633805"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

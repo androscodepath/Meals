@@ -30,7 +30,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func startSearch(_ sender: Any) {
         let searchText = mealSearchBar.text
-        
         guard let nonOptionalSearchText = searchText else {
             return
         }

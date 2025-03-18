@@ -9,8 +9,32 @@ import UIKit
 
 class MealDetailViewController: UIViewController {
 
+    let key = "favoriteMeals"
+    let encoder = JSONEncoder()
     @IBOutlet weak var detailMealLabel: UILabel!
     
+    @IBAction func saveToFavorite(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        if let data = defaults.data(forKey: key) {
+            let decoder = JSONDecoder()
+            var meals: [Meal] = (try? decoder.decode([Meal].self, from: data)) ?? []
+            
+            if let providedMeal {
+                meals.append(providedMeal)
+            }
+            
+            
+            let newData = try? encoder.encode(meals)
+            defaults.setValue(newData, forKey: key)
+        } else {
+            if let providedMeal {
+                let newData = try? encoder.encode([providedMeal])
+                defaults.setValue(newData, forKey: key)
+            }
+        }
+        
+    }
     var providedMeal: Meal?
     
     override func viewDidLoad() {
